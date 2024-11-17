@@ -13,4 +13,12 @@ When you store your terrafrom statefile in the local system , at the same time m
 there is a chance tp create one resource multiple times , because everyone is using their own statefiles,
 
 ## Remote statefile
-when you store statefile in the centralized location, multiple people can interact with it , they can create infra , and there is now chance for duplication
+when you store statefile in the centralized location, multiple people can interact with it , they can create infra , and there is now chance for duplication.
+
+# State lock:
+ at one time only one user /developer can perform , and statefile will be locked at that time. so no risk of mutiple people usage .
+ When you execute terraform plan/apply , terrafrom will lock the state file for this user and it refuses to use other poeple and say  existing user is using this , need to wait for some time.
+ # Conflict Prevention:
+By enforcing locking, Terraform ensures that no two users or processes can simultaneously modify infrastructure or state files, avoiding corruption or loss of data.
+
+
